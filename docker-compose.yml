@@ -1,0 +1,44 @@
+
+version: '3.8'
+
+services:
+
+  backend:
+    image: backend_tutorial
+    restart: always
+    container_name: rest_tutorial_backend
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8001"
+
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8001:8001"
+    volumes:
+      - tutorial_data:/var/www/html
+    depends_on:
+      - casdoor
+    networks:
+      - app-network
+  
+  casdoor:
+    image: casbin/casdoor-all-in-one
+    container_name: casdoor
+    ports:
+      - "8000:8000" 
+    environment:
+      - DATA_SOURCE=sqlite3
+    restart: always
+    volumes:
+      - ./casdoor_data:/app/data
+    networks:
+      - app-network 
+  
+
+volumes:
+  tutorial_data:
+  casdoor_data:
+
+networks:
+  app-network:
+    driver: bridge

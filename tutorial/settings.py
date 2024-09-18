@@ -133,9 +133,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-CASDOOR_CLIENT_ID = '677a2bf22ce77afdd6a4'
-CASDOOR_CLIENT_SECRET = '465b8b4173d0b90365be5e88cecdb03d4ccf5f45'
+CASDOOR_CLIENT_ID = '10fba32aa08cf53adf49'
+CASDOOR_CLIENT_SECRET = '713d6f0e2cf430db893844b9c62f54b356ce2715'
 CASDOOR_REDIRECT_URI = 'http://127.0.0.1:8001/callback/'
-CASDOOR_AUTHORIZATION_ENDPOINT = 'http://127.0.0.1:8000/login/oauth/authorize'
-CASDOOR_TOKEN_ENDPOINT = 'http://127.0.0.1:8000/api/login/oauth/access_token'
-CASDOOR_USERINFO_ENDPOINT = 'http://127.0.0.1:8000/api/userinfo'
+CASDOOR_AUTHORIZATION_ENDPOINT = 'http://172.20.0.2:8000/login/oauth/authorize'
+CASDOOR_TOKEN_ENDPOINT = 'http://172.20.0.2:8000/api/login/oauth/access_token'
+CASDOOR_USERINFO_ENDPOINT = 'http://172.20.0.2:8000/api/userinfo'
+
+
+ALLOWED_HOSTS = ["*"]
+

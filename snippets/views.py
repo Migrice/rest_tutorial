@@ -272,33 +272,9 @@ def callback_view(request):
         raise Exception("Failed to authenticate the user")
     
     raise Exception("Failed to access token")
-    
-    # userinfo = userinfo_response.json()
-
-    # # Authentifier l'utilisateur dans Django
-    # # Par exemple, créer une session utilisateur ou rediriger vers une page spécifique
-    
-    # # Ici tu peux gérer la connexion avec un utilisateur Django ou rediriger
-    # return render(request, 'home.html', {'userinfo': userinfo})
-
-
-# def login_view(request):
-#     if request.method == "POST":
-#         username = request.POST["username"]
-#         password = request.POST["password"]
-        
-#         user = authenticate(request,username=username, password=password)
-        
-#         if user is not None:
-#             login(request, user)
-#             request.session['username'] = username
-#             request.session.save()
-#             return redirect('snippets')
-#         else:
-#             raise ValueError("Invalid form")
-    
-#     return redirect("login")
-
+     
+    return redirect('snippets')
+ 
 
 
 def logout_view(request):
